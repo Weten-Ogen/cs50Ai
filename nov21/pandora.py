@@ -7,10 +7,21 @@ print(s)
 # DataFrames
 
 data = {
-    'Gender' :['F', 'M', 'M'], 
-    'Emp_ID': ['E01','E02','E03'],
-    'Age': [25, 22, 24],
+    'first_name' :['Florence', 'Marcus', 'Magaret', 'Alice','Ida'], 
+    'Emp_ID': ['1','2','3','4','5'],
+    'last_name': ['Obinim', 'Oware', 'Opoku','Boateng', 'Adiyiah'],
 }
 
-df = pd.DataFrame(data,columns=['Emp_ID','Gender','Age'])
-print(df)
+
+df_1 = pd.DataFrame(data,columns=['Emp_ID','first_name','last_name'])
+
+data1 = {
+    'first_name' :['Flora', 'Micheal', 'Morris', 'Addison','Ivy'], 
+    'Emp_ID': ['6','7','8','9','10'],
+    'last_name': ['Obi', 'Young', 'Kefason','Boat', 'Addae'],
+}
+
+df_2 = pd.DataFrame(data1, columns=['Emp_ID','first_name','last_name'])
+
+# pom = pd.concat([df_1, df_2], axis=0)
+print(pd.merge(df_1, df_2, on='Emp_ID', how='outer'))
